@@ -1,0 +1,29 @@
+import sys
+homeworkInfo = "There is no homework set for this date."
+programOn = 1
+while programOn == 1:
+    occupation = str.lower(input("What is your occupation? Teacher or student?"))
+    if len(occupation) != 7:
+        print("This occupation exceeds the character limit.")
+        sys.exit()
+    elif occupation == "teacher":
+        homeworkCode = str.lower(input("Enter the due date's homework code."))
+        if len(homeworkCode) != 10:
+            print("This homework code exceeds the character limit.")
+            sys.exit()
+        else:
+            homeworkInfo = input("Write some information about the homework that you are setting.")
+            if len(homeworkInfo) < 20:
+                print("This homework information is below the character limit.")
+            else:
+                print("Your homework is set for", homeworkCode, ".")
+    elif occupation == "student":
+        homeworkCode = input("Enter today's homework code.")
+        if len(homeworkCode) != 10:
+            print("This homework code exceeds the character limit.")
+            sys.exit()
+        else:
+            print("Here is your homework for this date:", homeworkInfo)
+    else:
+        print("This is not a recognised occupation.")
+        sys.exit()
